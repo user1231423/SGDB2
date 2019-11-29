@@ -1,0 +1,31 @@
+<div>
+    <h1>Lista</h1>
+    <button ng-click="getItems()" type="button" class="btn btn-primary">Get Data</button>
+    <button ng-click="hide()" type="button" class="btn btn-warning">Hide</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Nome
+                </th>
+                <th scope="col">
+                    Pais
+                </th>
+                <th scope="col">
+                    Cidade
+                </th>
+                <th scope="col">
+                    Acção
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-if="clientes!==undefined">
+            <tr ng-repeat="cliente in clientes">
+                <td>{{ cliente.Name }}</td>
+                <td>{{ cliente.Country }}</td>
+                <td>{{ cliente.City }}</td>
+                <td><button ng-click="apagarItem($index)" type="button" class="btn btn-danger">Apagar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<div>
+    <h1>Lista</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Nome
+                </th>
+                <th scope="col">
+                    Notas
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pessoa in dados">
+                <td>{{ pessoa.name }}</td>
+                <td>{{ pessoa.marks }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
