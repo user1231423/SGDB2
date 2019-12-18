@@ -64,17 +64,42 @@ exports.setMorada = function (req, res) {
             endereco: obj.endereco,
             cod_postal: obj.cod_postal
         };
-        if(err){
+        if (err) {
             res.send(err);
-        }else{
+        } else {
             data[0].morada = morada;
-            data[0].save(function(err, doc){
-                if(err){
+            data[0].save(function (err, doc) {
+                if (err) {
                     res.send(err);
-                }else{
+                } else {
                     res.send(doc);
                 }
             });
         }
-     })
+    })
+}
+
+exports.setClube = function (req, res) {
+    var id = req.params.id;
+    var obj = req.body;
+
+    pessoa.findOne({ _id: id }, function (err, data) {
+        var clubeObj = {
+            nome: obj.nome,
+            cor: obj.cor
+        }
+        if(err){
+            res.json(err);
+        }else{
+            data.clubes.addToSet(clubeObj);
+            data.save(function(err){
+                if(err){
+                    res.json(err);
+                    return;
+                }else{
+                    res.send("Modified!!");
+                }
+            })
+        }
+    })
 }

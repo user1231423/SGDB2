@@ -17,4 +17,7 @@ router.post('/update/:id', pessoas_controller.updatePessoa);
 /* POST set pessoa morada */
 router.post('/setMorada/:id', pessoas_controller.setMorada);
 
+/* POST set pessoa Add club */
+router.post('/setClube/:id', pessoas_controller.setClube);
+
 module.exports = router;
